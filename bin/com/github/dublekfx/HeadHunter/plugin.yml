@@ -1,5 +1,5 @@
 name: HeadHunter
-main: HeadHunter.HeadHunter
+main: com.github.dublekfx.HeadHunter.HeadHunter
 version: 0.1
 commands:
   hh:

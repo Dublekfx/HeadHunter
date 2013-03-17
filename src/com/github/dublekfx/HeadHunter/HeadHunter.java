@@ -57,7 +57,6 @@ public final class HeadHunter extends JavaPlugin implements Listener	{
 	public void onEntityDeathEvent (EntityDeathEvent event)	{
 		boolean dropHead = false;
 		ItemStack skull = new ItemStack(Material.SKULL_ITEM);
-		ItemStack diam = new ItemStack(Material.DIAMOND, 20);
 		
 		pDef = (Player)event.getEntity();
 		pAtt = pDef.getKiller();
@@ -73,7 +72,7 @@ public final class HeadHunter extends JavaPlugin implements Listener	{
 			skull.setItemMeta(skullm);
 		}
 		if (pDef.getName().equals("benzrf"))	{
-			pAtt.getInventory().addItem(diam);
+			pAtt.getInventory().addItem(new ItemStack(Material.DIAMOND, 20));
 		}
 	}
 }
