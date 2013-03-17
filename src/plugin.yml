@@ -4,7 +4,7 @@ version: 0.1
 commands:
   hh:
     description: This is the command to set head probabilities
-    usage: /hh <reload/looting> <one/two/three> <probability>
+    usage: /hh <reload/looting> <1/2/3> <probability>
     permission: headhunter.set
     permission-message: You are not op!
 permissions:

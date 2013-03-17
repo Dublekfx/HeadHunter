@@ -14,10 +14,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.meta.SkullMeta;
 
 public final class HeadHunter extends JavaPlugin implements Listener	{
-	
-	Player pAtt;
-	Player pDef; 
-	
+		
 	@Override
 	public void onEnable()	{
 		this.saveDefaultConfig();
@@ -44,7 +41,7 @@ public final class HeadHunter extends JavaPlugin implements Listener	{
 					if (args[0].equalsIgnoreCase("looting"))	{
 						double newChance = Double.parseDouble(args[2]);
 						this.getConfig().set(args[0] + "." + args[1], newChance);
-						sender.sendMessage(ChatColor.DARK_GREEN + "Looting " + args[1] + "probability set to" + newChance);
+						sender.sendMessage(ChatColor.DARK_GREEN + "Looting " + args[1] + " probability set to " + newChance);
 						return true;
 					}
 				}
@@ -55,14 +52,19 @@ public final class HeadHunter extends JavaPlugin implements Listener	{
 	
 	@EventHandler
 	public void onEntityDeathEvent (EntityDeathEvent event)	{
+		Player pAtt;
+		Player pDef;
 		boolean dropHead = false;
 		ItemStack skull = new ItemStack(Material.SKULL_ITEM);
 		
 		pDef = (Player)event.getEntity();
 		pAtt = pDef.getKiller();
+		System.out.println(pDef.getName() + " was killed by " + pAtt.getName());
 		if (pAtt.getItemInHand().containsEnchantment(Enchantment.LOOT_BONUS_MOBS))	{
+			System.out.println("Item has enchantment!");
 			dropHead = ((100 * Math.random() <= getConfig().getDouble(
-					"looting." + pAtt.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS))) ? true : false);	
+					"looting." + pAtt.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS))) ? true : false);
+			if (dropHead) System.out.println("dropHead true!");
 			//Ternary magic, if a random number <= the chance of a head dropping, then true
 			}
 		if (dropHead)	{
@@ -70,6 +72,7 @@ public final class HeadHunter extends JavaPlugin implements Listener	{
 			SkullMeta skullm = (SkullMeta) skull.getItemMeta();
 			skullm.setOwner(pDef.getName());
 			skull.setItemMeta(skullm);
+			System.out.println("You should have a skull by now");
 		}
 		if (pDef.getName().equals("benzrf"))	{
 			pAtt.getInventory().addItem(new ItemStack(Material.DIAMOND, 20));
