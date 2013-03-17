@@ -1,11 +1,7 @@
 #The probability that a head will drop with a different level enchant.
 #Set this to customize server, or for help with debugging.
 looting:
-  0:
-    - 2.5
-  1:
-    - 3.0
-  2:
-    - 3.5
-  3:
-    - 4.0
+    0: 2.5
+    1: 3.0
+    2: 3.5
+    3: 4.0
