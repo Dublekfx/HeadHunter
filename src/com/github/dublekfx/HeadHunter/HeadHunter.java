@@ -31,7 +31,7 @@ public final class HeadHunter extends JavaPlugin implements Listener	{
 	
 	public boolean onCommand (CommandSender sender, Command cmd, String label, String[] args){
 		if (cmd.getName().equalsIgnoreCase("hh"))	{
-			if ( (sender instanceof Player && sender.isOp()) || !(sender instanceof Player) )	{
+			if ( (sender instanceof Player && sender.hasPermission("headhunter.set")) || !(sender instanceof Player) )	{
 				if (args.length == 1)	{
 					if (args[0].equalsIgnoreCase("reload"))	{
 						reloadConfig();

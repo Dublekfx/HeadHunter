@@ -1,3 +1,13 @@
 name: HeadHunter
 main: HeadHunter.HeadHunter
 version: 0.1
+commands:
+  hh:
+    description: This is the command to set head probabilities
+    usage: /hh <reload/looting> <one/two/three> <probability>
+    permission: headhunter.set
+    permission-message: You are not op!
+permissions:
+  headhunter.set:
+    description: Permits ops to set head drop probability
+    default: op
