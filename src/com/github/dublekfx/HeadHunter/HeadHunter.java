@@ -73,12 +73,16 @@ public final class HeadHunter extends JavaPlugin implements Listener	{
 		} catch (NullPointerException e) {
 			return;
 		}
-		if(killer.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS)>0){
-			//System.out.println("checking node: looting."+killer.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS));
-			//System.out.println("result: "+getConfig().getDouble("looting." + killer.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS)));
-			if(((100 * Math.random() > getConfig().getDouble("looting." + killer.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS))) ? true : false))
-					return;
-			} else return;
+		try {
+			if(killer.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS)>0){
+				//System.out.println("checking node: looting."+killer.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS));
+				//System.out.println("result: "+getConfig().getDouble("looting." + killer.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS)));
+				if(((100 * Math.random() > getConfig().getDouble("looting." + killer.getItemInHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_MOBS))) ? true : false))
+						return;
+				} else return;
+		} catch (NullPointerException e) {
+			return;
+		}
 		//System.out.println("maths = success!");
 		ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) 2);
 		if(entity instanceof Zombie){
