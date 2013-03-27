@@ -18,6 +18,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.meta.SkullMeta;
 
+
 public final class HeadHunter extends JavaPlugin implements Listener	{
 		
 	@Override
@@ -46,6 +47,7 @@ public final class HeadHunter extends JavaPlugin implements Listener	{
 						sender.sendMessage("Looting One: " + this.getConfig().getDouble("looting.1"));
 						sender.sendMessage("Looting Two: " + this.getConfig().getDouble("looting.2"));
 						sender.sendMessage("Looting Three: " + this.getConfig().getDouble("looting.3"));
+						return true;
 					}
 				}
 				if (args.length == 3)	{
