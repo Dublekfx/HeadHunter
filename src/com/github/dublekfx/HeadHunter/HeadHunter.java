@@ -15,6 +15,7 @@ import org.bukkit.entity.Skeleton.SkeletonType;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.Listener;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.meta.SkullMeta;
 
@@ -117,4 +118,11 @@ public final class HeadHunter extends JavaPlugin implements Listener	{
 		entity.getWorld().dropItemNaturally(entity.getLocation(), skull);
 		//System.out.println("skull dropped, method complete");
 	}
+	@EventHandler
+	public void onBlockBreakEvent (BlockBreakEvent event)	{
+		if (event.getBlock().getType().equals(Material.SKULL))	{
+			event.getBlock().
+		}
+	}
+
 }
